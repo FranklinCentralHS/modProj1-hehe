@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://jlfslyfbhid5"]
+[gd_scene load_steps=13 format=3 uid="uid://jlfslyfbhid5"]
 
 [ext_resource type="Script" path="res://logic/paddle.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dr5sqh2wks0xh" path="res://pexels-felixmittermeier-956981.jpg" id="1_tqdp5"]
 [ext_resource type="Texture2D" uid="uid://dvrb8efddt0aa" path="res://paddle.png" id="2"]
 [ext_resource type="Script" path="res://logic/ball.gd" id="4"]
-[ext_resource type="Texture2D" uid="uid://clowikjgl4yq1" path="res://ball.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://3vmsl4xs2arh" path="res://realAsteroid.png" id="5_bec5e"]
 [ext_resource type="Texture2D" uid="uid://drgpdyyomyqpl" path="res://separator.png" id="6"]
 [ext_resource type="Script" path="res://logic/wall.gd" id="7"]
 [ext_resource type="Script" path="res://logic/ceiling_floor.gd" id="8"]
@@ -11,8 +12,8 @@
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(8, 32)
 
-[sub_resource type="RectangleShape2D" id="2"]
-size = Vector2(8, 8)
+[sub_resource type="CircleShape2D" id="CircleShape2D_f5rj3"]
+radius = 11.0
 
 [sub_resource type="RectangleShape2D" id="3"]
 size = Vector2(20, 400)
@@ -26,6 +27,14 @@ size = Vector2(640, 20)
 offset_right = 640.0
 offset_bottom = 400.0
 color = Color(0.141176, 0.152941, 0.164706, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -62.0
+offset_top = -7.0
+offset_right = 690.0
+offset_bottom = 416.0
+texture = ExtResource("1_tqdp5")
+expand_mode = 1
 
 [node name="Left" type="Area2D" parent="."]
 modulate = Color(0, 1, 1, 1)
@@ -54,10 +63,13 @@ position = Vector2(320.5, 191.124)
 script = ExtResource("4")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ball"]
-texture = ExtResource("5")
+position = Vector2(0.499992, -0.123991)
+scale = Vector2(0.167356, 0.167355)
+texture = ExtResource("5_bec5e")
 
 [node name="Collision" type="CollisionShape2D" parent="Ball"]
-shape = SubResource("2")
+position = Vector2(0.5, 0.876007)
+shape = SubResource("CircleShape2D_f5rj3")
 
 [node name="Separator" type="Sprite2D" parent="."]
 position = Vector2(320, 200)
